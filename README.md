@@ -27,4 +27,4 @@ ardNavigationCluster'.
 >Execution failed for task ':react-native-interactable:processReleaseResources'.<br/>
 >\> com.android.ide.common.process.ProcessException: Failed to execute aapt
 
-while run on android check [issue 12](https://github.com/wix/react-native-interactable/issues/12) of `react-native-interactable` repo.
+while run on android check [issue 12](https://github.com/wix/react-native-interactable/issues/12) of `react-native-interactable` repo and [issue 499](https://github.com/react-community/create-react-native-app/issues/499) of `create-react-native-app` repo.
