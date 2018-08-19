@@ -78797,6 +78797,12 @@ __d(function (global, _$$_REQUIRE, module, exports, _dependencyMap) {
     };
   }
 
+  var listRows = {
+    'Basic examples': ['ChatHeads', 'Swipeable Card', 'Icon Drawer (row actions)', 'Collapsing Header', 'More Drawers (row actions)', 'More Chat Heads', 'Handle Touches', 'Touches Inside (interactive)', 'Touches Inside (static)', 'Handle Relayout', 'Side Menu (imperative cmd)', 'Snap To (imperative cmd)', 'Change Position (imperative cmd)', 'Alert Areas and Drag Event', 'Collapsing Header with Scroll'],
+    'Real Life examples': ['Documentation', 'Row Actions (Google Style)', 'Row Actions (Apple Style)', 'Google Now-Style Card', 'Tinder-Style Card', 'Notification Panel', 'Apple Maps-Style Panel', 'Collapsible Filter', 'Collapsible Calendar (Any.do-Style)', 'Real Chat Heads', 'UX Inspirations']
+  };
+  var actions = [[_ChatHeads.default, _SwipeableCard.default, _IconDrawer.default, _CollapsingHeader.default, _MoreDrawers.default, _MoreChatHeads.default, _HandleTouches.default, _TouchesInside.default, _TouchesInsideStatic.default, _HandleRelayout.default, _SideMenu.default, _SnapTo.default, _ChangePosition.default, _AlertAreas.default, _CollapsingHeaderWithScroll.default], [_Documentation.default, _RowActions.default, _RowActions2.default, _NowCard.default, _TinderCard.default, _NotifPanel.default, _MapPanel.default, _CollapsibleFilter.default, _CollapsibleCalendar.default, _RealChatHeads.default, _UxInspirations.default]];
+
   var example = _wrapComponent("example")(function (_Component) {
     function example(props) {
       var _this;
@@ -78804,6 +78810,15 @@ __d(function (global, _$$_REQUIRE, module, exports, _dependencyMap) {
       _classCallCheck(this, example);
 
       _this = _possibleConstructorReturn(this, _getPrototypeOf(example).call(this, props));
+
+      _this.onExamplePress = function (section, row) {
+        var example = actions[section][row];
+
+        _this.setState({
+          currentExample: example
+        });
+      };
+
       _this.state = {
         currentExample: undefined
       };
@@ -78814,398 +78829,122 @@ __d(function (global, _$$_REQUIRE, module, exports, _dependencyMap) {
       key: "render",
       value: function render() {
         var title = 'React Native Interactions';
+
+        if (this.state.currentExample) {
+          title = this.state.currentExample.displayName;
+        }
+
         return _react.default.createElement(_reactNative.View, {
           style: styles.container,
           testID: 'Overview',
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 53
+            lineNumber: 124
           }
         }, _react.default.createElement(_reactNative.View, {
           style: styles.header,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 54
+            lineNumber: 125
           }
         }, this.state.currentExample && _react.default.createElement(_reactNative.TouchableOpacity, {
           style: styles.menuContainer,
           onPress: this.onMenuPress.bind(this),
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 57
+            lineNumber: 128
           }
         }, _react.default.createElement(_reactNative.Image, {
           style: styles.menuIcon,
           source: _$$_REQUIRE(_dependencyMap[29], '../assets/icon-menu.png'),
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 58
+            lineNumber: 129
           }
         })), _react.default.createElement(_reactNative.Text, {
           style: styles.headerTitle,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 61
+            lineNumber: 132
           }
         }, title)), _react.default.createElement(_reactNative.View, {
           style: styles.body,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 135
           }
         }, this.renderContent()));
       }
     }, {
       key: "renderContent",
       value: function renderContent() {
+        var _this2 = this;
+
         if (this.state.currentExample) {
           var ExampleComponent = this.state.currentExample;
           return _react.default.createElement(ExampleComponent, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 75
+              lineNumber: 146
             }
           });
         }
 
+        var keys = Object.keys(listRows);
         return _react.default.createElement(_reactNative.ScrollView, {
           style: styles.listContainer,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 79
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.seperatorText,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 80
-          }
-        }, "Basic examples"), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _ChatHeads.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 81
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 82
-          }
-        }, "Chat Heads")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _SwipeableCard.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 84
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 85
-          }
-        }, "Swipeable Card")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _IconDrawer.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 87
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 88
-          }
-        }, "Icon Drawer (row actions)")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _CollapsingHeader.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 90
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 91
-          }
-        }, "Collapsing Header")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _MoreDrawers.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 93
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 94
-          }
-        }, "More Drawers (row actions)")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _MoreChatHeads.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 96
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 97
-          }
-        }, "More Chat Heads")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _HandleTouches.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 99
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 100
-          }
-        }, "Handle Touches")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _TouchesInside.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 102
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 103
-          }
-        }, "Touches Inside (interactive)")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _TouchesInsideStatic.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 105
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 106
-          }
-        }, "Touches Inside (static)")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _HandleRelayout.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 108
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 109
-          }
-        }, "Handle Relayout")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _SideMenu.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 111
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 112
-          }
-        }, "Side Menu (imperative cmd)")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _SnapTo.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 114
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 115
-          }
-        }, "Snap To (imperative cmd)")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _ChangePosition.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 117
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 118
-          }
-        }, "Change Position (imperative cmd)")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _AlertAreas.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 120
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 121
-          }
-        }, "Alert Areas and Drag Event")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _CollapsingHeaderWithScroll.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 123
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 124
-          }
-        }, "Collapsing Header with Scroll")), _react.default.createElement(_reactNative.Text, {
-          style: styles.seperatorText,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 126
-          }
-        }, "Real Life examples"), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _Documentation.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 127
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button2,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 128
-          }
-        }, "Documentation")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _RowActions.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 130
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 131
-          }
-        }, "Row Actions (Google Style)")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _RowActions2.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 133
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 134
-          }
-        }, "Row Actions (Apple Style)")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _NowCard.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 136
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 137
-          }
-        }, "Google Now-Style Card")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _TinderCard.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 139
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 140
-          }
-        }, "Tinder-Style Card")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _NotifPanel.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 142
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 143
-          }
-        }, "Notification Panel")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _MapPanel.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 145
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 146
-          }
-        }, "Apple Maps-Style Panel")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _CollapsibleFilter.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 148
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 149
-          }
-        }, "Collapsible Filter")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _CollapsibleCalendar.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 151
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
             lineNumber: 152
           }
-        }, "Collapsible Calendar (Any.do-Style)")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _RealChatHeads.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 154
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 155
-          }
-        }, "Real Chat Heads")), _react.default.createElement(_reactNative.TouchableOpacity, {
-          onPress: this.onExamplePress.bind(this, _UxInspirations.default),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 157
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          style: styles.button2,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 158
-          }
-        }, "UX Inspirations")));
-      }
-    }, {
-      key: "onExamplePress",
-      value: function onExamplePress(currentExample) {
-        this.setState({
-          currentExample: currentExample
-        });
+        }, keys.map(function (key, idx) {
+          var rows = listRows[key];
+          return _react.default.createElement(_reactNative.FlatList, {
+            key: key,
+            keyExtractor: function keyExtractor(item) {
+              return item;
+            },
+            data: rows,
+            renderItem: function renderItem(_ref) {
+              var index = _ref.index,
+                  item = _ref.item;
+              var rowStyle = styles.button;
+
+              if (idx === 1 && (index === 0 || index == rows.length - 1)) {
+                rowStyle = styles.button2;
+              }
+
+              return _react.default.createElement(_reactNative.TouchableOpacity, {
+                onPress: function onPress() {
+                  return _this2.onExamplePress(idx, index);
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 167
+                }
+              }, _react.default.createElement(_reactNative.Text, {
+                style: rowStyle,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 168
+                }
+              }, item));
+            },
+            ListHeaderComponent: function ListHeaderComponent(item) {
+              return _react.default.createElement(_reactNative.Text, {
+                style: styles.seperatorText,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 171
+                }
+              }, key);
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 157
+            }
+          });
+        }));
       }
     }, {
       key: "onMenuPress",

@@ -5,6 +5,7 @@ import {
   View,
   Image,
   ScrollView,
+  FlatList,
   TouchableOpacity,
   Text
 } from 'react-native';
@@ -38,6 +39,73 @@ import CollapsibleFilter from './real-life-examples/CollapsibleFilter';
 import CollapsibleCalendar from './real-life-examples/CollapsibleCalendar';
 import RealChatHeads from './real-life-examples/RealChatHeads';
 import UxInspirations from './real-life-examples/UxInspirations';
+
+const listRows = {
+  'Basic examples': [
+    'ChatHeads',
+    'Swipeable Card',
+    'Icon Drawer (row actions)',
+    'Collapsing Header',
+    'More Drawers (row actions)',
+    'More Chat Heads',
+    'Handle Touches',
+    'Touches Inside (interactive)',
+    'Touches Inside (static)',
+    'Handle Relayout',
+    'Side Menu (imperative cmd)',
+    'Snap To (imperative cmd)',
+    'Change Position (imperative cmd)',
+    'Alert Areas and Drag Event',
+    'Collapsing Header with Scroll',
+  ],
+  'Real Life examples': [
+    'Documentation',
+    'Row Actions (Google Style)',
+    'Row Actions (Apple Style)',
+    'Google Now-Style Card',
+    'Tinder-Style Card',
+    'Notification Panel',
+    'Apple Maps-Style Panel',
+    'Collapsible Filter',
+    'Collapsible Calendar (Any.do-Style)',
+    'Real Chat Heads',
+    'UX Inspirations',
+  ]
+}
+
+const actions = [
+  [
+    ChatHeads,
+    SwipeableCard,
+    IconDrawer,
+    CollapsingHeader,
+    MoreDrawers,
+    MoreChatHeads,
+    HandleTouches,
+    TouchesInside,
+    TouchesInsideStatic,
+    HandleRelayout,
+    SideMenu,
+    SnapTo,
+    ChangePosition,
+    AlertAreas,
+    CollapsingHeaderWithScroll
+  ],
+  [
+    Documentation,
+    RowActions1,
+    RowActions2,
+    NowCard,
+    TinderCard,
+    NotifPanel,
+    MapPanel,
+    CollapsibleFilter,
+    CollapsibleCalendar,
+    RealChatHeads,
+    UxInspirations
+  ]
+];
+
 export default class example extends Component {
   constructor(props) {
     super(props);
@@ -47,7 +115,10 @@ export default class example extends Component {
   }
 
   render() {
-    const title = /*this.state.currentExample || */'React Native Interactions';
+    let title = 'React Native Interactions';
+    if(this.state.currentExample) {
+      title = this.state.currentExample.displayName;
+    }
 
     return (
       <View style={styles.container} testID={'Overview'}>
@@ -75,94 +146,39 @@ export default class example extends Component {
       return <ExampleComponent />;
     }
 
+    const keys = Object.keys(listRows);
+
     return (
       <ScrollView style={styles.listContainer}>
-        <Text style={styles.seperatorText}>Basic examples</Text>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, ChatHeads)}>
-          <Text style={styles.button}>Chat Heads</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, SwipeableCard)}>
-          <Text style={styles.button}>Swipeable Card</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, IconDrawer)}>
-          <Text style={styles.button}>Icon Drawer (row actions)</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, CollapsingHeader)}>
-          <Text style={styles.button}>Collapsing Header</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, MoreDrawers)}>
-          <Text style={styles.button}>More Drawers (row actions)</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, MoreChatHeads)}>
-          <Text style={styles.button}>More Chat Heads</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, HandleTouches)}>
-          <Text style={styles.button}>Handle Touches</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, TouchesInside)}>
-          <Text style={styles.button}>Touches Inside (interactive)</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, TouchesInsideStatic)}>
-          <Text style={styles.button}>Touches Inside (static)</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, HandleRelayout)}>
-          <Text style={styles.button}>Handle Relayout</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, SideMenu)}>
-          <Text style={styles.button}>Side Menu (imperative cmd)</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, SnapTo)}>
-          <Text style={styles.button}>Snap To (imperative cmd)</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, ChangePosition)}>
-          <Text style={styles.button}>Change Position (imperative cmd)</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, AlertAreas)}>
-          <Text style={styles.button}>Alert Areas and Drag Event</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, CollapsingHeaderWithScroll)}>
-          <Text style={styles.button}>Collapsing Header with Scroll</Text>
-        </TouchableOpacity>
-        <Text style={styles.seperatorText}>Real Life examples</Text>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, Documentation)}>
-          <Text style={styles.button2}>Documentation</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, RowActions1)}>
-          <Text style={styles.button}>Row Actions (Google Style)</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, RowActions2)}>
-          <Text style={styles.button}>Row Actions (Apple Style)</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, NowCard)}>
-          <Text style={styles.button}>Google Now-Style Card</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, TinderCard)}>
-          <Text style={styles.button}>Tinder-Style Card</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, NotifPanel)}>
-          <Text style={styles.button}>Notification Panel</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, MapPanel)}>
-          <Text style={styles.button}>Apple Maps-Style Panel</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, CollapsibleFilter)}>
-          <Text style={styles.button}>Collapsible Filter</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, CollapsibleCalendar)}>
-          <Text style={styles.button}>Collapsible Calendar (Any.do-Style)</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, RealChatHeads)}>
-          <Text style={styles.button}>Real Chat Heads</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onExamplePress.bind(this, UxInspirations)}>
-          <Text style={styles.button2}>UX Inspirations</Text>
-        </TouchableOpacity>
+      {
+        keys.map((key, idx) => {
+          const rows = listRows[key];
+
+          return <FlatList
+            key={key}
+            keyExtractor={item => item}
+            data={rows}
+            renderItem={({index, item})=>{
+              let rowStyle = styles.button
+              if(idx === 1 && (index === 0 || index == rows.length-1)) {
+                rowStyle = styles.button2
+              }
+
+              return <TouchableOpacity onPress={()=>this.onExamplePress(idx, index)}>
+                <Text style={rowStyle}>{item}</Text>
+              </TouchableOpacity>
+            }}
+            ListHeaderComponent={item => <Text style={styles.seperatorText}>{key}</Text>}
+          />
+        })
+      }
       </ScrollView>
     );
   }
 
-  onExamplePress(currentExample) {
-    this.setState({currentExample});
+  onExamplePress = (section, row) => {
+    let example = actions[section][row];
+    this.setState({currentExample: example});
   }
 
   onMenuPress() {
