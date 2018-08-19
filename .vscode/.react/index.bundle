@@ -79019,10 +79019,6 @@ __d(function (global, _$$_REQUIRE, module, exports, _dependencyMap) {
       marginBottom: 24
     }
   });
-
-  _reactNative.AppRegistry.registerComponent('example', function () {
-    return example;
-  });
 },507,[37,87,1,508,511,512,513,514,515,516,517,518,519,520,522,523,524,525,526,527,531,532,534,536,537,540,542,545,549,521],"src/app.js");
 __d(function (global, _$$_REQUIRE, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {

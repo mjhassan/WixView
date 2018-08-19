@@ -242,5 +242,3 @@ const styles = StyleSheet.create({
     marginBottom: 24
   }
 });
-
-AppRegistry.registerComponent('example', () => example);
