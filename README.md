@@ -1,7 +1,7 @@
 # **react-native-interactable** example
 
 `react-native-interactable` is an excellent library for interactable views in React Native, that promises high performance.
-Unfortunatly, the example (playground), included in the rero, is not working. So I separed the code and made it workable.
+Unfortunatly, the example (playground), included in the repo, is not working. So I separed the code and made it workable.
 
 ## How do I run it
 
